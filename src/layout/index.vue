@@ -1,4 +1,14 @@
-<script setup lang="ts"></script>
+<script lang="ts">
+import { useMessage } from 'naive-ui';
+import { defineComponent } from 'vue';
+
+// content
+export default defineComponent({
+  setup() {
+    window.$message = useMessage();
+  },
+});
+</script>
 
 <template>
   <n-layout has-sider style="height: 100%">
