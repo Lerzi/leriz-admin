@@ -5,7 +5,9 @@ useHead({
 </script>
 
 <template>
-  <router-view></router-view>
+  <n-message-provider>
+    <RouterView />
+  </n-message-provider>
 </template>
 
 <style scoped></style>

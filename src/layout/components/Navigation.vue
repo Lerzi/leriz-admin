@@ -3,7 +3,6 @@ const route = useRoute();
 const list = ref();
 
 function getBreadcrumb() {
-  console.log('list :>> ', list);
   // only show routes with meta.title
   let matched = route.matched.filter(item => item.meta && item.meta.title);
 

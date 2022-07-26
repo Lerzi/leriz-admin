@@ -2,15 +2,12 @@
 import { h } from 'vue';
 import { RouterLink, RouteRecordRaw } from 'vue-router';
 const router: readonly RouteRecordRaw[] = useRouter().options.routes;
-console.log('router :>> ', router);
 const menuOptions = ref<any[]>([]);
 menuOptions.value = getMenus(router);
-console.log('menuOptions.value :>> ', menuOptions.value);
 
 function getMenus(r: readonly RouteRecordRaw[] | undefined) {
   let menus: Array<Object> = [];
   r?.forEach(item => {
-    console.log('item.meta.title :>> ', item.meta?.title);
     if (!item.meta?.hidden) {
       if (
         item.hasOwnProperty('children') &&

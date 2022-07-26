@@ -1,4 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const state = ref(123);
+</script>
 <template>
-  <div>index</div>
+  <div>{{ state }}</div>
 </template>
+s
