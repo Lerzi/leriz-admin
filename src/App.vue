@@ -6,7 +6,9 @@ useHead({
 
 <template>
   <n-message-provider>
-    <RouterView />
+    <n-loading-bar-provider>
+      <RouterView />
+    </n-loading-bar-provider>
   </n-message-provider>
 </template>
 
