@@ -1,11 +1,28 @@
 <script setup lang="ts">
+import { useUserStore } from '~/store/user';
+
 const formValue = ref({
-  userName: '',
-  password: '',
+  userName: 'admin',
+  password: 'admin123',
 });
 const rules = ref();
+const router = useRouter();
 
-function login() {}
+function login() {
+  console.log('formValue :>> ', formValue);
+  const userStore = useUserStore();
+
+  userStore
+    .login(formValue.value.userName, formValue.value.password)
+    .then(() => {
+      router.push({
+        path: '/index',
+      });
+    })
+    .catch(err => {
+      window.$message.error(`${err}`);
+    });
+}
 </script>
 <template>
   <div class="app-container">
@@ -15,7 +32,6 @@ function login() {}
         :label-width="80"
         :model="formValue"
         :rules="rules"
-        size="small"
         :show-label="false"
       >
         <n-form-item label="用户名" path="userName">
@@ -25,10 +41,22 @@ function login() {}
           />
         </n-form-item>
         <n-form-item label="密码" path="password">
-          <n-input v-model:value="formValue.password" placeholder="密码" />
+          <n-input
+            v-model:value="formValue.password"
+            placeholder="密码"
+            type="password"
+            show-password-on="mousedown"
+          />
         </n-form-item>
         <n-form-item>
-          <n-button attr-type="button" @click="login"> 登录 </n-button>
+          <n-button
+            attr-type="button"
+            @click="login"
+            type="primary"
+            style="width: 100%"
+          >
+            登录
+          </n-button>
         </n-form-item>
       </n-form>
     </n-card>

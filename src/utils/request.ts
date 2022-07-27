@@ -1,10 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-
-interface Res {
-  code: number;
-  msg: string;
-  data: any;
-}
+import { Res } from './request.type';
 
 const service: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,

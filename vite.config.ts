@@ -21,9 +21,10 @@ export default defineConfig({
         'vue/macros',
         '@vueuse/head',
         '@vueuse/core',
+        'pinia',
       ],
       dts: 'src/auto-imports.d.ts',
-      dirs: ['src/composables', 'src/store'],
+      dirs: ['src/composables', 'src/store/user'],
       vueTemplate: true,
     }),
     Components({
